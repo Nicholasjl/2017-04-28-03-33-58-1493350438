@@ -1,4 +1,5 @@
-   public static class BowlingGame {
+
+    public  class BowlingGame {
 
 
         public  int getBowlingScore(String bowlingCode) {
@@ -50,8 +51,8 @@
                 else
                     sum+=a[i];
             }
-            ma=max(ma,sum);
-
+            //ma=max(ma,sum);
+            ma=ma>sum?ma:sum;
 
             //X|7/|9-|X|-8|8/|-6|X|X|X||81System.out.println(ma);
             return ma;
