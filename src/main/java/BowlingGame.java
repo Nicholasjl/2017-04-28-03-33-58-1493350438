@@ -1,61 +1,61 @@
-public class BowlingGame {
+   public static class BowlingGame {
 
 
-    public int getBowlingScore(String bowlingCode) {
+        public  int getBowlingScore(String bowlingCode) {
 
             int[] a=new int [50];
 
 
             int ma=0;
 
-                char[] c =bowlingCode.toCharArray();
-                int n=1;
-                a[0]=-1;
-                for (int i=0;i<bowlingCode.length();i++){
-                    if (c[i]=='X'||c[i]=='/')
-                        a[n]=10;
-                    else if (c[i]=='|')
-                        a[n]=-1;
-                    else if (c[i]=='-')
-                        a[n]=0;
-                    else
-                        a[n]=c[i]-'0';
-                    n++;
-                }
-                int sum=0;
-                for (int i=1;a[i]!=-1||a[i+1]!=-1;i++){
-                    if (a[i]==-1)
-                        continue;
-                    if (a[i]==10){
-                        int k=0;
-                        if (a[i-1]!=-1){
-                            sum=sum+10-a[i-1];
-                            k=1;
-                        }
-                        else {
-                            sum+=10;
-                            k=2;
-                        }
-                        for (int j=1;i+j<=n;j++){
-                            if (k==0)
-                                break;
-                            if (a[i+j]!=-1){
-                                sum+=a[i+j];
-                                if (a[i+j]==10&&a[i+j-1]!=-1&&(a[i+2]!=-1||a[i+1]!=-1))
-                                    sum-=a[i+j-1];
-                                k--;
-                            }
+            char[] c =bowlingCode.toCharArray();
+            int n=1;
+            a[0]=-1;
+            for (int i=0;i<bowlingCode.length();i++){
+                if (c[i]=='X'||c[i]=='/')
+                    a[n]=10;
+                else if (c[i]=='|')
+                    a[n]=-1;
+                else if (c[i]=='-')
+                    a[n]=0;
+                else
+                    a[n]=c[i]-'0';
+                n++;
+            }
+            int sum=0;
+            for (int i=1;a[i]!=-1||a[i+1]!=-1;i++){
+                if (a[i]==-1)
+                    continue;
+                if (a[i]==10){
+                    int k=0;
+                    if (a[i-1]!=-1){
+                        sum=sum+10-a[i-1];
+                        k=1;
+                    }
+                    else {
+                        sum+=10;
+                        k=2;
+                    }
+                    for (int j=1;i+j<=n;j++){
+                        if (k==0)
+                            break;
+                        if (a[i+j]!=-1){
+                            sum+=a[i+j];
+                            if (a[i+j]==10&&a[i+j-1]!=-1&&(a[i+2]!=-1||a[i+1]!=-1))
+                                sum-=a[i+j-1];
+                            k--;
                         }
                     }
-                    else
-                        sum+=a[i];
                 }
-                ma=max(ma,sum);
-          
+                else
+                    sum+=a[i];
+            }
+            ma=max(ma,sum);
+
 
             //X|7/|9-|X|-8|8/|-6|X|X|X||81System.out.println(ma);
-        return ma;
+            return ma;
+
+        }
 
     }
-
-}
