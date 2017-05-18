@@ -1,7 +1,7 @@
 public class BowlingGame {
 
 
-    public static int getBowlingScore(String bowlingCode) {
+    public int getBowlingScore(String bowlingCode) {
 
             int[] a=new int [50];
 
